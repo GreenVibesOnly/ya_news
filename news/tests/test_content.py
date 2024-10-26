@@ -68,7 +68,7 @@ class TestDetailPage(TestCase):
         all_comments = news.comment_set.all()
         self.assertLess(all_comments[0].created, all_comments[1].created)
 
-    # Доступность формы анонимному пользователю
+    # Недоступность формы анонимному пользователю
     def test_anonymous_client_has_no_form(self):
         response = self.client.get(self.detail_url)
         self.assertNotIn('form', response.context)
